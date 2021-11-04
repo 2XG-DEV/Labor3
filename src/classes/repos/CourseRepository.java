@@ -3,6 +3,8 @@ package classes.repos;
 import classes.Course;
 import classes.Student;
 
+import java.util.ArrayList;
+
 public class CourseRepository extends InMemoryRepository<Course>{
 
     private static CourseRepository instance = null;
@@ -35,6 +37,7 @@ public class CourseRepository extends InMemoryRepository<Course>{
             s.getEnrolledCourses().remove(obj);
             s.setTotalCredits(s.getTotalCredits()-obj.getCredits());
         }
+        obj.setStudentsEnrolled(new ArrayList<Student>());
         this.repoList.remove(obj);
     }
 }
